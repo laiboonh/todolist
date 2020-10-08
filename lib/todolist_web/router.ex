@@ -26,7 +26,7 @@ defmodule TodolistWeb.Router do
   end
 
   scope "/", TodolistWeb do
-    pipe_through [:browser]
+    pipe_through [:browser, :protected]
 
     get "/", PageController, :index
   end

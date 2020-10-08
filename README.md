@@ -27,6 +27,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 | Functionality | In Progress | Done  | 
 |---------------|-------------|-------|
 | Login         |             |   X   |
+| Logout        |             |   X   |
 | Create Task   |      X      |       |
 | List Task     |      X      |       |
 | Edit task     |             |       |
