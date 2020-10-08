@@ -50,5 +50,6 @@ defmodule TodolistWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  plug Pow.Plug.Session, otp_app: :todolist
   plug TodolistWeb.Router
 end

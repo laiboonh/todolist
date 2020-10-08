@@ -10,6 +10,10 @@ use Mix.Config
 config :todolist,
   ecto_repos: [Todolist.Repo]
 
+config :todolist, :pow,
+  user: Todolist.Users.User,
+  repo: Todolist.Repo
+
 # Configures the endpoint
 config :todolist, TodolistWeb.Endpoint,
   url: [host: "localhost"],
