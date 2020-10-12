@@ -1,7 +1,7 @@
 defmodule TodolistWeb.PageControllerTest do
   use TodolistWeb.ConnCase
 
-  setup %{conn: conn} = config do
+  setup %{conn: conn} do
     user = %Todolist.Users.User{email: "test@example.com", id: 1}
     authed_conn = Pow.Plug.assign_current_user(conn, user, [])
     {:ok, conn: conn, authed_conn: authed_conn}
