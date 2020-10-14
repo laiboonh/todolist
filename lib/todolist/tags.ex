@@ -105,6 +105,7 @@ defmodule Todolist.Tags do
   def tag_name_list(tag_names) when is_binary(tag_names) do
     tag_names
     |> String.split(",")
+    |> Enum.reject(&(&1 == ""))
     |> Enum.map(fn name -> name |> String.trim() |> String.downcase() end)
   end
 

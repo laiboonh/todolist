@@ -60,5 +60,10 @@ defmodule Todolist.TagsTest do
       tag = tag_fixture()
       assert %Ecto.Changeset{} = Tags.change_tag(tag)
     end
+
+    test "tag_name_list when given empty tag names return empty list" do
+      assert Tags.tag_name_list(",,") == []
+      assert Tags.tag_name_list("a,b,") == ["a", "b"]
+    end
   end
 end
