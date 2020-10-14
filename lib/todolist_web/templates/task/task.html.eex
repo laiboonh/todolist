@@ -2,10 +2,9 @@
   <article class="column">
     <h2>Tasks</h2>
     <ul>
-      <li>
-        <%= for task <- @tasks do %>
-          <p><%= task %></p>
-        <% end %>
+      <%= for task <- @tasks do %>
+        <li> <%= task %> </li>
+      <% end %>
     </ul>
   </article>
 </section>
