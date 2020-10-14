@@ -103,26 +103,13 @@ defmodule Todolist.Tags do
     Tag.changeset(tag, attrs)
   end
 
-  def tag_task(%Task{id: task_id}, tag_names) when is_binary(tag_names) do
-    tags =
-      tag_names
-      |> tag_name_list
-      |> Enum.map(&ensure_tag_exists/1)
-
-    Todolist.Tasks.get_task!(task_id)
-    |> Repo.preload(:tags)
-    |> Ecto.Changeset.change()
-    |> Ecto.Changeset.put_assoc(:tags, tags)
-    |> Repo.update()
-  end
-
-  defp tag_name_list(tag_names) when is_binary(tag_names) do
+  def tag_name_list(tag_names) when is_binary(tag_names) do
     tag_names
     |> String.split(",")
     |> Enum.map(fn name -> name |> String.trim() |> String.downcase() end)
   end
 
-  defp ensure_tag_exists(tag_name) do
+  def ensure_tag_exists(tag_name) do
     Tag.changeset(%Tag{name: tag_name}, %{})
     |> Repo.insert()
     |> handle_existing_tag()
