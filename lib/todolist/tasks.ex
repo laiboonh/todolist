@@ -1,4 +1,4 @@
-defmodule Todolist.Tasks.Tasks do
+defmodule Todolist.Tasks do
   alias Todolist.Repo
 
   def get_all() do
