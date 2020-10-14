@@ -16,7 +16,7 @@ defmodule Todolist.TagsTest do
         |> Enum.into(@valid_attrs)
         |> Tags.create_tag()
 
-      tag
+      %Tag{tag | tasks: []}
     end
 
     test "list_tags/0 returns all tags" do

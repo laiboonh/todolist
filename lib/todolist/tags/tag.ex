@@ -4,6 +4,7 @@ defmodule Todolist.Tags.Tag do
 
   schema "tags" do
     field :name, :string
+    many_to_many :tasks, Todolist.Tasks.Task, join_through: "tasks_tags"
 
     timestamps()
   end
