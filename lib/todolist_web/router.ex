@@ -29,6 +29,7 @@ defmodule TodolistWeb.Router do
     pipe_through [:browser, :protected]
 
     get "/", PageController, :index
+    get "/tasks", TaskController, :index
   end
 
   # Other scopes may use custom stacks.

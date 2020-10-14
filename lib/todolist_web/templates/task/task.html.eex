@@ -1,0 +1,10 @@
+<section class="row">
+  <article class="column">
+    <h2>Tasks</h2>
+    <ul>
+      <%= for task <- @tasks do %>
+        <li> <%= task %> </li>
+      <% end %>
+    </ul>
+  </article>
+</section>
