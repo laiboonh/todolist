@@ -7,7 +7,6 @@ defmodule Todolist.Tags do
   alias Todolist.Repo
 
   alias Todolist.Tags.Tag
-  alias Todolist.Tasks.Task
 
   @doc """
   Returns the list of tags.

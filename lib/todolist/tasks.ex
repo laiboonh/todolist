@@ -7,6 +7,12 @@ defmodule Todolist.Tasks do
     Repo.all(Task)
   end
 
+  def create_task(attrs \\ %{}) do
+    %Task{}
+    |> Task.changeset(attrs)
+    |> Repo.insert()
+  end
+
   def get_task!(id), do: Repo.get!(Task, id) |> Repo.preload(:tags)
 
   def tag_task(%Task{id: task_id}, tag_names) when is_binary(tag_names) do
