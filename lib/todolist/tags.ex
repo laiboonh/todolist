@@ -115,7 +115,7 @@ defmodule Todolist.Tags do
     |> handle_existing_tag()
   end
 
-  defp handle_existing_tag({:ok, author}), do: author
+  defp handle_existing_tag({:ok, tag}), do: tag
 
   defp handle_existing_tag({:error, changeset}) do
     Repo.get_by!(Tag, name: changeset.changes.name)
