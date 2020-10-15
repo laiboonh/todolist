@@ -13,6 +13,17 @@ defmodule Todolist.Tasks do
     |> Repo.insert()
   end
 
+  def create_task_with_tags(attrs \\ %{}) do
+    Ecto.Multi.new()
+    |> Ecto.Multi.run(:task, fn _, _ ->
+      create_task(attrs)
+    end)
+    |> Ecto.Multi.run(:tags, fn _, changes ->
+      tag_task(changes.task, attrs.tag_name)
+    end)
+    |> Repo.transaction()
+  end
+
   def get_task!(id), do: Repo.get!(Task, id) |> Repo.preload(:tags)
 
   def tag_task(%Task{id: task_id}, tag_names) when is_binary(tag_names) do
